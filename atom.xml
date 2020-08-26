@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-25T07:45:58.775Z</updated>
+  <updated>2020-08-26T04:23:23.082Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="http://yoursite.com/2020/08/25/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2020/08/25/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</id>
     <published>2020-08-25T03:45:00.000Z</published>
-    <updated>2020-08-25T07:45:58.775Z</updated>
+    <updated>2020-08-26T04:23:23.082Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="spring中的重要概念"><a href="#spring中的重要概念" class="headerlink" title="spring中的重要概念"></a>spring中的重要概念</h5><pre><code>spring中有两个重要的概念：IoC (Inversion of Control，控制反转) 和 AOP(Aspect Oriented Programming，面向切面编程)。</code></pre><h5 id="个人对spring的理解"><a href="#个人对spring的理解" class="headerlink" title="个人对spring的理解"></a>个人对spring的理解</h5><pre><code>spring是一个容器，来管理我们需要的BEAN。IoC：控制反转，将我们手动创建对象的控制权交给了spring框架不需要关心创建对象的过程。举个例子：我们要吃饭，本来是要自己做，去饭店吃，就可以把做饭这件事叫个饭店来做，我们不需要关心对饭的过程，只需要告诉饭店要吃什么。AOP：面向切面编程。    切入点：在哪些类哪些方法上切入    通知：在执行的实际方法前后做什么</code></pre>]]></content>
+    <content type="html"><![CDATA[<h5 id="spring中的重要概念"><a href="#spring中的重要概念" class="headerlink" title="spring中的重要概念"></a>spring中的重要概念</h5><pre><code>    spring中有两个重要的概念：IoC (Inversion of Control，控制反转) 和 AOP(Aspect Oriented Programming，面向切面编程)。</code></pre><h5 id="个人对spring的理解"><a href="#个人对spring的理解" class="headerlink" title="个人对spring的理解"></a>个人对spring的理解</h5><pre><code>    spring是一个容器，来管理我们需要的BEAN。    IoC：控制反转，将我们手动创建对象的控制权交给了spring框架不需要关心创建对象的过程。举个例子：我们要吃饭，本来是要自己做，去饭店吃，就可以把做饭这件事叫个饭店来做，我们不需要关心对饭的过程，只需要告诉饭店要吃什么。    DI：Dependency Injection（依赖注入），在Spring创建过程中，将对象依赖的属性，比如对象、集合等通过配置设置给该对象。    AOP：面向切面编程。在面向切边的编程思想里，把功能分为核心业务功能(对数据的操作等)和周边业务功能(事务、日志等)。    切入点：在哪些类哪些方法上切入(核心业务)    通知：在执行的实际方法前后做什么(周边业务)    切面：切面=切点+通知    织入：把切面加入到对象，并创建出代理对象的过程(由spring完成)</code></pre><h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><h6 id="Ioc"><a href="#Ioc" class="headerlink" title="Ioc"></a>Ioc</h6><pre><code>首先创建一个maven项目</code></pre><p><img src= "/img/loading.gif" data-lazy-src="%5Cimages%5Cpasted-4.png%5C" alt="upload successful"></p><p><img src= "/img/loading.gif" data-lazy-src="%5Cimages%5Cpasted-3.png%5C" alt="upload successful"></p><pre><code>在</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;h5 id=&quot;spring中的重要概念&quot;&gt;&lt;a href=&quot;#spring中的重要概念&quot; class=&quot;headerlink&quot; title=&quot;spring中的重要概念&quot;&gt;&lt;/a&gt;spring中的重要概念&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;spring中有两个重要的概念：IoC (I</summary>
+    <summary type="html">&lt;h5 id=&quot;spring中的重要概念&quot;&gt;&lt;a href=&quot;#spring中的重要概念&quot; class=&quot;headerlink&quot; title=&quot;spring中的重要概念&quot;&gt;&lt;/a&gt;spring中的重要概念&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;    spring中有两个重要的概念：Io</summary>
       
     
     
