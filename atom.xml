@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-25T03:55:39.385Z</updated>
+  <updated>2020-08-25T07:45:58.775Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,15 @@
     <title>spring框架学习</title>
     <link href="http://yoursite.com/2020/08/25/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2020/08/25/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</id>
-    <published>2020-08-25T03:45:19.695Z</published>
-    <updated>2020-08-25T03:55:39.385Z</updated>
+    <published>2020-08-25T03:45:00.000Z</published>
+    <updated>2020-08-25T07:45:58.775Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h1>]]></content>
+    <content type="html"><![CDATA[<h5 id="spring中的重要概念"><a href="#spring中的重要概念" class="headerlink" title="spring中的重要概念"></a>spring中的重要概念</h5><pre><code>spring中有两个重要的概念：IoC (Inversion of Control，控制反转) 和 AOP(Aspect Oriented Programming，面向切面编程)。</code></pre><h5 id="个人对spring的理解"><a href="#个人对spring的理解" class="headerlink" title="个人对spring的理解"></a>个人对spring的理解</h5><pre><code>spring是一个容器，来管理我们需要的BEAN。IoC：控制反转，将我们手动创建对象的控制权交给了spring框架不需要关心创建对象的过程。举个例子：我们要吃饭，本来是要自己做，去饭店吃，就可以把做饭这件事叫个饭店来做，我们不需要关心对饭的过程，只需要告诉饭店要吃什么。AOP：面向切面编程。    切入点：在哪些类哪些方法上切入    通知：在执行的实际方法前后做什么</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;spring&quot;&gt;&lt;a href=&quot;#spring&quot; class=&quot;headerlink&quot; title=&quot;spring&quot;&gt;&lt;/a&gt;spring&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h5 id=&quot;spring中的重要概念&quot;&gt;&lt;a href=&quot;#spring中的重要概念&quot; class=&quot;headerlink&quot; title=&quot;spring中的重要概念&quot;&gt;&lt;/a&gt;spring中的重要概念&lt;/h5&gt;&lt;pre&gt;&lt;code&gt;spring中有两个重要的概念：IoC (I</summary>
       
     
     
