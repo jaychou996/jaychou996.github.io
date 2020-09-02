@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/08/31/ringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%BA%8C/</loc>
+    
+    <lastmod>2020-09-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/29/pringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2020-08-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/08/25/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%B8%80/</loc>
     
     <lastmod>2020-08-27</lastmod>
@@ -53,7 +67,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2020-08-31</lastmod>
+    <lastmod>2020-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,7 +75,7 @@
   
   <url>
     <loc>http://yoursite.com/tags/spring/</loc>
-    <lastmod>2020-08-31</lastmod>
+    <lastmod>2020-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -70,7 +84,7 @@
   
   <url>
     <loc>http://yoursite.com/categories/java%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2020-08-31</lastmod>
+    <lastmod>2020-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>springMVC框架学习(二) | jaychou996</title><meta name="description" content="model.addAttribute()的使用导入jsp的jar包 &lt;!--servlet-api.jar 是servlet 3.0 版本之前的地址 javax.servlet-api.jar 是servlet 3.0 版本之后的地址--&gt; &lt;dependency&gt;   &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;   &lt;a"><meta name="author" content="lixu"><meta name="copyright" content="lixu"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/2020/08/31/ringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%BA%8C/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="springMVC框架学习(二)"><meta property="og:url" content="http://yoursite.com/2020/08/31/ringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%BA%8C/"><meta property="og:site_name" content="jaychou996"><meta property="og:description" content="model.addAttribute()的使用导入jsp的jar包 &lt;!--servlet-api.jar 是servlet 3.0 版本之前的地址 javax.servlet-api.jar 是servlet 3.0 版本之后的地址--&gt; &lt;dependency&gt;   &lt;groupId&gt;javax.servlet&lt;&#x2F;groupId&gt;   &lt;a"><meta property="og:image" content="https://s1.ax1x.com/2020/08/25/d6ymQI.jpg"><meta property="article:published_time" content="2020-08-31T11:06:09.000Z"><meta property="article:modified_time" content="2020-09-02T06:31:58.722Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.0.2',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime: '',
+  last_push_date: '天前',
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+      const now = new Date()
+      const expiryDay = ttl * 86400000
+      const item = {
+        value: value,
+        expiry: now.getTime() + expiryDay,
+      }
+      localStorage.setItem(key, JSON.stringify(item))
+    },
+  
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-09-02 14:31:58'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="jaychou996" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">6</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#model-addAttribute-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">model.addAttribute()的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%BD%AC%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">重定向和转发</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">设置字符编码过滤器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE%E6%8F%90%E4%BA%A4"><span class="toc-number">4.</span> <span class="toc-text">表单数据提交</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://s1.ax1x.com/2020/08/25/d6ymQI.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">jaychou996</a></span><span class="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">springMVC框架学习(二)</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-31T11:06:09.000Z" title="发表于 2020-08-31 19:06:09">2020-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-02T06:31:58.722Z" title="更新于 2020-09-02 14:31:58">2020-09-02</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h5 id="model-addAttribute-的使用"><a href="#model-addAttribute-的使用" class="headerlink" title="model.addAttribute()的使用"></a>model.addAttribute()的使用</h5><p>导入jsp的jar包</p>
+<pre><code>&lt;!--servlet-api.jar 是servlet 3.0 版本之前的地址
+javax.servlet-api.jar 是servlet 3.0 版本之后的地址--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+  &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+  &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;!--jstl标签库--&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+  &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+  &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+<p>创建一个collection类</p>
+<pre><code>import Demo.pojo.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Controller
+public class TestController &#123;
+    @RequestMapping(&quot;addAttr&quot;)//&quot;addAttr&quot;：访问的路径
+    public String addAttr(Model model)&#123;
+        //list
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;hello&quot;);
+        list.add(&quot;world&quot;);
+        model.addAttribute(&quot;list&quot;,list);
+        //map
+        Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;1&quot;,&quot;hello&quot;);
+        map.put(&quot;2&quot;,&quot;world&quot;);
+        model.addAttribute(&quot;map&quot;,map);
+        //对象
+        User user = new User();
+        user.setName(&quot;周杰伦&quot;);
+        user.setAge(41);
+        model.addAttribute(&quot;user&quot;,user);
+        return &quot;addAttr&quot;;//&quot;addAttr&quot;：jsp页面的名称
+    &#125;
+&#125;</code></pre>
+<p>创建一个jsp</p>
+<pre><code>&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;addAttr.jsp&lt;/title&gt;
+&lt;/head&gt;
+&lt;br&gt;
+List&lt;br&gt;
+&lt;c:forEach items=&quot;$&#123;list&#125;&quot; var=&quot;i&quot;&gt;
+    $&#123;i&#125;&lt;br&gt;
+&lt;/c:forEach&gt;
+Map&lt;br&gt;
+&lt;c:forEach items=&quot;$&#123;map&#125;&quot; var=&quot;entry&quot;&gt;
+    key:$&#123;entry.key&#125;&lt;br&gt;
+    value:$&#123;entry.value&#125;&lt;br&gt;
+&lt;/c:forEach&gt;
+对象&lt;br&gt;
+$&#123;user.name&#125;&lt;br&gt;
+$&#123;user.age&#125;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>结果</p>
+<pre><code>访问地址：http://localhost:8080/addAttr
+结果：List
+      hello
+      world
+      Map
+      key:1
+      value:hello
+      key:2
+      value:world
+      对象
+      周杰伦
+      41</code></pre>
+<h5 id="重定向和转发"><a href="#重定向和转发" class="headerlink" title="重定向和转发"></a>重定向和转发</h5><p>重定向</p>
+<pre><code>不带参数的重定向
+  @RequestMapping(&quot;redirect1&quot;)//访问路径
+  public String redirect1()&#123;
+      return &quot;redirect:hello&quot;;//重定向的地址
+  &#125;
+访问http://localhost:8080/redirect1会重定向到http://localhost:8080/hello
+
+带参数的重定向
+@RequestMapping(&quot;redirect2&quot;)//访问路径
+public String redirect2(RedirectAttributes attributes)&#123;
+    attributes.addAttribute(&quot;message&quot;,&quot;从redirect2重定向到redirect0&quot;);
+    return &quot;redirect:redirect0&quot;;//重定向的地址
+&#125;
+
+@RequestMapping(&quot;redirect3&quot;)
+public String redirect3(RedirectAttributes attributes)&#123;
+    attributes.addFlashAttribute(&quot;message&quot;,&quot;从redirect3重定向到redirect00&quot;);
+    return &quot;redirect:redirect00&quot;;
+&#125;
+
+创建一个RederectController类
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class RedirectController &#123;
+    @RequestMapping(&quot;redirect0&quot;)
+    public String redirectTest(@RequestParam String message, Model model)&#123;
+        model.addAttribute(&quot;message&quot;,message);
+        return &quot;redirect&quot;;
+    &#125;
+    @RequestMapping(&quot;redirect00&quot;)
+    public String redirectTest2(@ModelAttribute(&quot;message&quot;) String message,Model model)&#123;
+        model.addAttribute(&quot;message&quot;,message);
+        return &quot;redirect&quot;;
+    &#125;
+&#125;
+
+创建一个redirect.jsp
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;redirect.jsp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+$&#123;message&#125;
+&lt;/body&gt;
+&lt;/html&gt;
+
+结果
+访问http://localhost:8080/redirect2重定向到http://localhost:8080/redirect0   显示 ?redirect1????redirect0  (???怎么会乱码)
+访问http://localhost:8080/redirect3重定向到http://localhost:8080/redirect00  显示 从redirect3重定向到redirect00
+
+两种设置参数的区别：
+addAttribute(“param”, value);这种方式就相当于重定向之后，在url后面拼接参数，这样在重定向之后的页面或者控制器再去获取url后面的参数就可以了，但这个方式因为是在url后面添加参数的方式，所以暴露了参数，有风险。
+addFlashAttribute(“param”, value);这种方式也能达到重新向带参，而且能隐藏参数，其原理就是放到session中，session在跳到页面后马上移除对象。</code></pre>
+<p>转发</p>
+<pre><code>默认是转发到jsp，forword可以省略，如果要转发到controller上，必须加上forward。
+@RequestMapping(&quot;forward&quot;)
+public String forward(Model model)&#123;
+    model.addAttribute(&quot;message&quot;,&quot;转发的hello，world&quot;);
+    return &quot;forward:hello2&quot;;
+&#125;
+
+@RequestMapping(&quot;hello2&quot;)
+public String hello()&#123;
+    //寻找WEB-INF目录下view/hello.jsp文件
+    return &quot;hello&quot;;
+&#125;
+
+   访问http://localhost:8080/forward，地址栏不会发生变化
+ 显示  转发的hello，world</code></pre>
+<p>重定向和转发的区别</p>
+<pre><code>重定向：客户端发送了两次请求，不能共享数据，重定向的路径可以是任意路径，重定向时地址栏会发生改变。
+转发：客户端只发送一次请求，转发的路径只能是同一web容器下的路径，数据可以共享，转发地址栏不会改变。</code></pre>
+<h5 id="设置字符编码过滤器"><a href="#设置字符编码过滤器" class="headerlink" title="设置字符编码过滤器"></a>设置字符编码过滤器</h5><pre><code>在web.xml中配置
+    &lt;filter&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;!--需要使用的字符集--&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;!--强制设置编码为utf-8--&gt;
+        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+        &lt;param-value&gt;true&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+
+前面重定向时乱码，再试一次
+访问访问http://localhost:8080/redirect2重定向到http://localhost:8080/redirect0
+地址栏显示  http://localhost:8080/redirect0?message=从redirect2重定向到redirect0
+页面显示  从redirect2重定向到redirect0</code></pre>
+<h5 id="表单数据提交"><a href="#表单数据提交" class="headerlink" title="表单数据提交"></a>表单数据提交</h5><p>在webapp创建一个form.html作为数据提交页面，WEBINF 是项目的安全目录，无法直接通过在浏览器上敲地址访问。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ZH&quot; &gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;form.html&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form action=&quot;/form&quot; method=&quot;post&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p> 创建一个form.jsp页面作为数据回显页面</p>
+<pre><code> &lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;form.jsp&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+用户名：$&#123;username&#125;&lt;br&gt;
+密码：$&#123;password&#125;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>后端接收数据</p>
+<pre><code>@RequestMapping(&quot;form&quot;)
+public String getForm(String username,String password,Model model)&#123;
+    model.addAttribute(&quot;username&quot;,username);
+    model.addAttribute(&quot;password&quot;,password);
+    return &quot;form&quot;;
+&#125;
+或者
+@RequestMapping(&quot;form&quot;)
+public String getForm(HttpServletRequest request,Model model)&#123;
+    model.addAttribute(&quot;username&quot;,request.getParameter(&quot;username&quot;));
+    model.addAttribute(&quot;password&quot;,request.getParameter(&quot;password&quot;));
+    return &quot;form&quot;;
+&#125;
+或者用注解@RequestParam绑定请求参数
+    @RequestMapping(&quot;form&quot;)
+public String getFrom(@RequestParam(&quot;username&quot;) String username,@RequestParam(&quot;password&quot;) String password,Model model)&#123;
+    model.addAttribute(&quot;username&quot;,username);
+    model.addAttribute(&quot;password&quot;,password);
+    return &quot;form&quot;;
+&#125;
+
+访问http://localhost:8080/form.html需要在web.xml文件加
+下面的配置
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;</code></pre>
+</div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2020/08/25/d6ymQI.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/08/29/pringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"><img class="next-cover" data-lazy-src="https://s1.ax1x.com/2020/08/25/d6ymQI.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">springMVC框架学习(一)</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By lixu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
