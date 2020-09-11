@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/09/02/ybatis%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://yoursite.com/2020/09/11/JVM-%E7%B1%BB%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</loc>
     
-    <lastmod>2020-09-03</lastmod>
+    <lastmod>2020-09-11</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/08/29/pringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%B8%80/</loc>
+    
+    <lastmod>2020-09-04</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2020/08/31/ringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0-%E4%BA%8C/</loc>
     
-    <lastmod>2020-09-02</lastmod>
+    <lastmod>2020-09-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/08/29/pringMVC%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://yoursite.com/2020/09/02/ybatis%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2020-08-31</lastmod>
+    <lastmod>2020-09-03</lastmod>
     
   </url>
   
@@ -74,7 +81,7 @@
 
   <url>
     <loc>http://yoursite.com/</loc>
-    <lastmod>2020-09-03</lastmod>
+    <lastmod>2020-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -82,7 +89,7 @@
   
   <url>
     <loc>http://yoursite.com/tags/spring/</loc>
-    <lastmod>2020-09-03</lastmod>
+    <lastmod>2020-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -91,7 +98,7 @@
   
   <url>
     <loc>http://yoursite.com/categories/java%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2020-09-03</lastmod>
+    <lastmod>2020-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
